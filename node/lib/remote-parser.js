@@ -1,14 +1,18 @@
 module.exports = (remoteString) => {
   var parts = remoteString.split(' ')
-  var origin = parts[0]
-  var user = parts[1].split('@')[0]
-  var host = parts[1].split('@')[1].split(':')[0]
-  var path = parts[1].split('@')[1].split(':')[1]
+  var name = parts[0]
+  var remoteParts = parts[1].split('@')
+  var url = remoteParts[1]
+  var user = remoteParts[0]
+  var host = url.split(':')[0]
+  var path = url.split(':')[1]
+  var type = parts[2].replace('(', '').replace(')', '')
 
   return {
-    origin: origin,
+    origin: name,
     user: user,
     host: host,
-    path: path
+    path: path,
+    type: type
   }
 }
