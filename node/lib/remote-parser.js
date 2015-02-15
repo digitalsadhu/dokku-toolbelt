@@ -1,18 +1,33 @@
+let urlParser = require('url')
+
 module.exports = (remoteString) => {
-  var parts = remoteString.split(' ')
-  var name = parts[0]
-  var remoteParts = parts[1].split('@')
-  var url = remoteParts[1]
-  var user = remoteParts[0]
-  var host = url.split(':')[0]
-  var path = url.split(':')[1]
-  var type = parts[2].replace('(', '').replace(')', '')
+  let parts = remoteString.split(' ')
+  
+  let name = parts[0]
+  let url = parts[1]
+  let type = parts[2].replace('(', '').replace(')', '')
+
+  if (!url.match(/.*:\/\/.*/g))
+    url = 'ssh://' + url
+
+  let parsedUrl = urlParser.parse(url)
+  let host = parsedUrl.host
+  let path = parsedUrl.pathname
+  let user = null 
+  let pass = null
+
+  if (parsedUrl.auth) {
+    user = parsedUrl.auth.replace(/(.*):(.*)/, '$1')
+    pass = parsedUrl.auth.replace(/(.*):(.*)/, '$2')
+  }
 
   return {
-    origin: name,
-    user: user,
-    host: host,
-    path: path,
-    type: type
+    name,
+    user,
+    pass,
+    url,
+    host,
+    path,
+    type
   }
 }
