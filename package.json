@@ -4,7 +4,8 @@
   "description": "Toolbelt for dokku, similar to the heroku toolbelt",
   "main": "index.js",
   "scripts": {
-    "test": ""
+    "test": "",
+    "postinstall": "cd node/lib/dokku-git-remote-parser/lib/dokku-git-remote-stream && npm install"
   },
   "author": "Richard Walker <digitalsadhu@gmail.com>",
   "license": "MIT",
