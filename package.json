@@ -13,6 +13,6 @@
   },
   "preferGlobal": true,
   "bin": {
-    "dt" : "index.js"
+    "dt" : "node/index.js"
   }
 }
