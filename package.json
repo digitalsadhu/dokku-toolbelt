@@ -4,17 +4,15 @@
   "description": "Toolbelt for dokku, similar to the heroku toolbelt",
   "main": "index.js",
   "scripts": {
-    "test": "testem"
+    "test": ""
   },
-  "author": "",
+  "author": "Richard Walker <digitalsadhu@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "commander": "^2.6.0"
+    "commander": "2.6.0"
   },
-  "devDependencies": {
-    "expect": "^1.6.0",
-    "mocha": "^2.1.0",
-    "mocha-given": "^0.1.3",
-    "testem": "^0.7.0-0"
+  "preferGlobal": true,
+  "bin": {
+    "dt" : "index.js"
   }
 }
