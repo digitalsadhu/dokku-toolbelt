@@ -9,7 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "exec_stream": "0.0.3"
+    "commander": "^2.6.0"
   },
   "devDependencies": {
     "expect": "^1.6.0",
