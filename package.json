@@ -9,10 +9,11 @@
   "author": "Richard Walker <digitalsadhu@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "6to5": "^3.6.5",
     "commander": "2.6.0"
   },
   "preferGlobal": true,
   "bin": {
-    "dt" : "node/index.js"
+    "dt": "node/index.js"
   }
 }
