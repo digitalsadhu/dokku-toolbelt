@@ -1,10 +1,12 @@
-let spawn = require('child_process').spawn,
+var spawn = require('child_process').spawn,
     parse = require('./lib/dokku-git-remote-stream')
 
-module.exports = (cb) => {
-  let gitRemote = spawn('git', ['remote', '-v'], { cwd: process.cwd() })
+module.exports = function (cb) {
+  var gitRemote = spawn('git', ['remote', '-v'], { cwd: process.cwd() })
 
   gitRemote.stdout
     .pipe(parse)
-    .on('data', data => cb(data.host, data.appName))
+    .on('data', function (data) {
+      cb(data.host, data.appName)
+    })
 }

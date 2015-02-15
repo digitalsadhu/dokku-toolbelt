@@ -1,7 +1,7 @@
-let spawn = require('child_process').spawn,
+var spawn = require('child_process').spawn,
     util  = require('util')
 
-const globalCommands = [
+var globalCommands = [
   'apps:create',
   'apps:destroy',
   'backup:export',
@@ -16,8 +16,8 @@ const globalCommands = [
   'apps'
 ]
 
-module.exports = (host, app, params) => {
-  let sshParams = ['-T', 'dokku@' + host]
+module.exports = function (host, app, params) {
+  var sshParams = ['-T', 'dokku@' + host]
 
   if (util.isArray(params)) {
     sshParams.push(params.shift())
@@ -28,7 +28,11 @@ module.exports = (host, app, params) => {
     sshParams = sshParams.concat(params)
   }
 
-  let ssh = spawn('ssh', sshParams)
-  ssh.stdout.on('data', data => console.log(data.toString()))
-  ssh.stderr.on('data', data => console.log('err:', data.toString()))
+  var ssh = spawn('ssh', sshParams)
+  ssh.stdout.on('data', function (data) {
+    console.log(data.toString())
+  })
+  ssh.stderr.on('data', function (data) {
+    console.log('err:', data.toString())
+  })
 }

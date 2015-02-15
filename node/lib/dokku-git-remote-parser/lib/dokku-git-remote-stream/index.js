@@ -1,10 +1,10 @@
-let through2 = require('through2')
+var through2 = require('through2')
 
 module.exports = through2.obj(function(chunk, enc, cb) {
-  let remotes = chunk.toString().match(/dokku@([^:]*):(?:\/.*\/)?([^\s]*)/)
-  let host = remotes[1]
-  let appName = remotes[2]
+  var remotes = chunk.toString().match(/dokku@([^:]*):(?:\/.*\/)?([^\s]*)/)
+  var host = remotes[1]
+  var appName = remotes[2]
 
-  this.push({ host, appName })
+  this.push({ host: host, appName: appName })
   cb()
 })
