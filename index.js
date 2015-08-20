@@ -28,15 +28,12 @@ program.command('* [params...]')
       }
 
       //run the command
-      cp.exec(sshCommand, function (err, stdout, stderr) {
-        if (err) {
-          console.error(err.message)
-          process.exit()
-        }
+      var arguments = sshCommand.split(' ')
+      var cmd = arguments.shift()
 
-        console.log(stdout)
-        console.log(stderr)
-      })
+      var dt = cp.spawn(cmd, arguments)
+      dt.stdout.pipe(process.stdout)
+      dt.stderr.pipe(process.stderr)
     })
   })
 
