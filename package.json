@@ -4,17 +4,31 @@
   "description": "Toolbelt for dokku, similar to the heroku toolbelt",
   "main": "index.js",
   "scripts": {
-    "test": "",
-    "postinstall": "cd node/lib/dokku-git-remote-parser/lib/dokku-git-remote-stream && npm install"
+    "test": ""
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digitalsadhu/dokku-toolbelt.git"
+  },
+  "keywords": [
+    "dokku",
+    "toolbelt",
+    "cli",
+    "docker"
+  ],
   "author": "Richard Walker <digitalsadhu@gmail.com>",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/digitalsadhu/dokku-toolbelt/issues"
+  },
+  "homepage": "https://github.com/digitalsadhu/dokku-toolbelt#readme",
   "dependencies": {
     "commander": "2.6.0",
-    "through2": "^0.6.3"
+    "dokku-app-ssh": "^1.0.1",
+    "dokku-git-remote-parser": "^1.1.2"
   },
   "preferGlobal": true,
   "bin": {
-    "dt": "node/index.js"
+    "dt": "index.js"
   }
 }
