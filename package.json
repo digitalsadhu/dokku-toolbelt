@@ -1,6 +1,6 @@
 {
   "name": "dokku-toolbelt",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "Toolbelt for dokku, similar to the heroku toolbelt",
   "main": "index.js",
   "scripts": {
