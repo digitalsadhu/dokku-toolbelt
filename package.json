@@ -27,10 +27,12 @@
   "dependencies": {
     "babel": "^5.8.21",
     "dokku-app-ssh": "^1.0.1",
-    "dokku-git-remote-parser": "^1.1.2"
+    "dokku-git-remote-parser": "^1.1.2",
+    "highland": "^2.5.1",
+    "minimist": "^1.1.3"
   },
   "preferGlobal": true,
   "bin": {
-    "dt": "index.js"
+    "dt": "lib/index.js"
   }
 }
