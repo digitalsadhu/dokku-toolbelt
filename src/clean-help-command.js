@@ -36,7 +36,8 @@ const blacklist = [
   'backup:export',
   'backup:import',
   'shell',
-  'version'
+  'version',
+  'ps '
 ]
 let blacklistedHelpCommands = text => {
   for (let item of blacklist) {
