@@ -1,15 +1,17 @@
-let _ = require('highland')
-let os = require('os')
+var _ = require('highland')
+var os = require('os')
 
-let trim = text => text.trim()
+var trim = function (text) {
+  return text.trim()
+}
 
-let cleanHelpText = text => {
+var cleanHelpText = function (text) {
   if (text.match('Usage')) return text += os.EOL
   if (text.match('Options')) return text
   if (text.match('apps:create')) return text
 
-  let columnA = text.slice(0, 60)
-  let columnB = text.slice(60)
+  var columnA = text.slice(0, 60)
+  var columnB = text.slice(60)
 
   columnA = columnA
     .replace(/<app>/gi, '')
@@ -24,14 +26,14 @@ let cleanHelpText = text => {
   return columnA + columnB
 }
 
-let indentCommands = text => {
+var indentCommands = function (text) {
   if (text.match('Usage')) return text
   if (text.match('Options')) return text
 
   return '    ' + text
 }
 
-const blacklist = [
+var blacklist = [
   'apps:destroy',
   'backup:export',
   'backup:import',
@@ -39,8 +41,8 @@ const blacklist = [
   'version',
   'ps '
 ]
-let blacklistedHelpCommands = text => {
-  for (let item of blacklist) {
+var blacklistedHelpCommands = function (text) {
+  for (var item of blacklist) {
     if (text.match(item)) {
       return
     }
@@ -48,9 +50,11 @@ let blacklistedHelpCommands = text => {
   return text
 }
 
-let joinWithNewLines = (a, b) => `${a}\n${b}`
+var joinWithNewLines = function (a, b) {
+  return `${a}\n${b}`
+}
 
-module.exports = (stream) => {
+module.exports = function (stream) {
   return stream
     .split()
     .map(trim)

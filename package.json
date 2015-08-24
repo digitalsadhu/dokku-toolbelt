@@ -4,9 +4,7 @@
   "description": "Toolbelt for dokku, similar to the heroku toolbelt",
   "main": "index.js",
   "scripts": {
-    "test": "",
-    "postinstall": "babel src --out-dir lib",
-    "dev": "babel src --watch --out-dir lib"
+    "test": ""
   },
   "repository": {
     "type": "git",
@@ -25,7 +23,6 @@
   },
   "homepage": "https://github.com/digitalsadhu/dokku-toolbelt#readme",
   "dependencies": {
-    "babel": "^5.8.21",
     "dokku-app-ssh": "^1.0.1",
     "dokku-git-remote-parser": "^1.1.2",
     "highland": "^2.5.1",
@@ -33,6 +30,6 @@
   },
   "preferGlobal": true,
   "bin": {
-    "dt": "lib/index.js"
+    "dt": "src/index.js"
   }
 }
