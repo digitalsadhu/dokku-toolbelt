@@ -51,7 +51,7 @@ var blacklistedHelpCommands = function (text) {
 }
 
 var joinWithNewLines = function (a, b) {
-  return `${a}\n${b}`
+  return a + '\n' + b
 }
 
 module.exports = function (stream) {
