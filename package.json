@@ -4,7 +4,7 @@
   "description": "Toolbelt for dokku, similar to the heroku toolbelt",
   "main": "index.js",
   "scripts": {
-    "test": ""
+    "test": "echo true"
   },
   "repository": {
     "type": "git",
