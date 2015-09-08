@@ -42,9 +42,11 @@ var blacklist = [
   'ps '
 ]
 var blacklistedHelpCommands = function (text) {
-  for (var item of blacklist) {
-    if (text.match(item)) {
-      return
+  for (var item in blacklist) {
+    if (blacklist.hasOwnProperty(item)) {
+      if (text.match(item)) {
+        return
+      }
     }
   }
   return text
