@@ -9,6 +9,13 @@ var minimist = require('minimist');
 var cleanHelpCommand = require('./clean-help-command')
 
 var argv = minimist(process.argv.slice(2))
+Object.keys(argv)
+  .filter(function (arg) {
+    return arg !== '_'
+  })
+  .forEach(function (arg) {
+    argv._.push('-' + arg)
+  })
 var command = argv._.join(' ')
 
 dokkuGitRemoteParser(function (err, host, appName) {
