@@ -1,7 +1,10 @@
-dokku-toolbelt
-==============
+# dokku-toolbelt
 
 Toolbelt for dokku, similar to the heroku toolbelt
+
+## HELP, MAINTAINER WANTED.
+
+I no longer use dokku personally and would really appreciate someone stepping up to take ownership of this project from me. If you are interested, please create an issue to put your hand up.
 
 ## Installation
 ```
